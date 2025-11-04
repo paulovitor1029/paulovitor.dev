@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfólio profissional de desenvolvedor backend especializado em APIs, arquitetura de sistemas e soluções cloud.">
+    <meta name="keywords" content="desenvolvedor backend, API, Node.js, PHP, Python, DevOps, Cloud">
+    <title>Paulo Vitor - Backend Developer</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="logo">&lt;DEV/&gt;</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#experience">Experiência</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Paulo Vitor</h1>
+                <h2>Desenvolvedor Backend Júnior | Entusiasta de Arquitetura e Cloud</h2>
+                <p>Desenvolvedor backend especializado em construir sistemas escaláveis, APIs robustas e soluções em
+                    cloud. Apaixonado por performance, segurança e boas práticas de código.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                    <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/350" alt="Foto de Perfil" class="profile-pic">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="about-content reveal">
+            <div class="about-image">
+                <img src="https://via.placeholder.com/400x500" alt="Sobre Mim">
+            </div>
+            <div class="about-text">
+                <h3>Olá! Eu sou Paulo Vitor</h3>
+                <p>Com mais de [X] anos de experiência no desenvolvimento backend, tenho paixão por criar soluções
+                    eficientes e escaláveis. Minha jornada no mundo da tecnologia começou quando passei no vestibular da
+                    ETEC Camargo Aranha.</p>
+                <p>Ao longo da minha carreira, trabalhei com diversas tecnologias e frameworks, sempre buscando as
+                    melhores práticas e padrões de desenvolvimento. Adoro resolver problemas complexos e transformar
+                    requisitos em sistemas robustos e performáticos.</p>
+
+                <div class="about-info">
+                    <div class="info-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <div>
+                            <strong>Idade:</strong><br>
+                            <span>20</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Localização:</strong><br>
+                            <span>Guarulhos, SP - Brasil</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-language"></i>
+                        <div>
+                            <strong>Idiomas:</strong><br>
+                            <span>Português, Inglês, [outros]</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-heart"></i>
+                        <div>
+                            <strong>Interesses:</strong><br>
+                            <span>Open Source, DevOps, Blockchain & Criptomoedas, Criptografia e Segurança da
+                                Informação, AI, Automações</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/docs/cv-paulo-vitor.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <div class="skills-container">
+            <div class="skill-category reveal">
+                <h3><i class="fas fa-code"></i> Linguagens</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>PHP</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Python</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>TypeScript</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Go</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category reveal">
+                <h3><i class="fas fa-layer-group"></i> Frameworks & Backend</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Laravel</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">NestJS</span>
+                    <span class="skill-tag">Express</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Django</span>
+                </div>
+            </div>
+
+            <div class="skill-category reveal">
+                <h3><i class="fas fa-database"></i> Bancos de Dados</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Redis</span>
+                </div>
+            </div>
+
+            <div class="skill-category reveal">
+                <h3><i class="fas fa-cloud"></i> DevOps & Cloud</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                </div>
+            </div>
+
+            <div class="skill-category reveal">
+                <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Comunicação</span>
+                    <span class="skill-tag">Resolução de Problemas</span>
+                    <span class="skill-tag">Metodologias Ágeis</span>
+                    <span class="skill-tag">Code Review</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Projetos</h2>
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="api">APIs</button>
+            <button class="filter-btn" data-filter="system">Sistemas</button>
+            <button class="filter-btn" data-filter="opensource">Open Source</button>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card reveal" data-category="api">
+                <div class="project-image">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="project-info">
+                    <h3>API RESTful E-commerce</h3>
+                    <p>API completa para sistema de e-commerce com autenticação JWT, pagamentos integrados e sistema de
+                        notificações em tempo real.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">PostgreSQL</span>
+                        <span class="project-tag">Redis</span>
+                        <span class="project-tag">Docker</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="#" class="link-code"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="system">
+                <div class="project-image">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Sistema de Gestão Empresarial</h3>
+                    <p>Plataforma completa de CRM/ERP desenvolvida para gestão empresarial integrada, com módulos de
+                        Vendas, Estoque, Financeiro e Relatórios avançados. Projetada para otimizar processos internos,
+                        melhorar o controle operacional e fornecer insights estratégicos em tempo real.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Laravel</span>
+                        <span class="project-tag">MySQL</span>
+                        <span class="project-tag">AWS</span>
+                        <span class="project-tag">Vue.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="#" class="link-code"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="opensource">
+                <div class="project-image">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Microserviços Framework</h3>
+                    <p>Framework open source para construção rápida de arquiteturas de microserviços com observabilidade
+                        integrada.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Go</span>
+                        <span class="project-tag">gRPC</span>
+                        <span class="project-tag">Prometheus</span>
+                        <span class="project-tag">Kubernetes</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="#" class="link-code"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="api">
+                <div class="project-image">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="project-info">
+                    <h3>API Gateway com Auth</h3>
+                    <p>Gateway centralizado com autenticação, rate limiting, cache e monitoramento para múltiplos
+                        serviços.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">FastAPI</span>
+                        <span class="project-tag">Redis</span>
+                        <span class="project-tag">OAuth2</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="#" class="link-code"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="system">
+                <div class="project-image">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Chat em Tempo Real</h3>
+                    <p>Sistema de mensagens instantâneas com suporte a canais, mensagens privadas e compartilhamento de
+                        arquivos.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">WebSocket</span>
+                        <span class="project-tag">MongoDB</span>
+                        <span class="project-tag">React</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="#" class="link-code"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="opensource">
+                <div class="project-image">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="project-info">
+                    <h3>CLI Tool para DevOps</h3>
+                    <p>Ferramenta de linha de comando para automação de tarefas DevOps, deploy e gerenciamento de
+                        infraestrutura.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Go</span>
+                        <span class="project-tag">Docker</span>
+                        <span class="project-tag">Kubernetes</span>
+                        <span class="project-tag">CI/CD</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="#" class="link-code"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experiência Profissional</h2>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Senior Backend Developer</h3>
+                    <p class="company">TechCorp Solutions</p>
+                    <p class="period">Jan 2022 - Presente</p>
+                    <p>Liderança técnica da equipe de backend, responsável pela arquitetura de microserviços,
+                        implementação de APIs RESTful e GraphQL, otimização de performance e mentoria de desenvolvedores
+                        júnior.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Backend Developer</h3>
+                    <p class="company">TechCorp Solutions</p>
+                    <p class="period">Mar 2020 - Dez 2021</p>
+                    <p>Desenvolvimento de APIs escaláveis, integração com serviços cloud AWS, implementação de CI/CD
+                        pipelines e otimização de consultas de banco de dados.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Full Stack Developer</h3>
+                    <p class="company">TechCorp Solutions</p>
+                    <p class="period">Jun 2018 - Fev 2020</p>
+                    <p>Desenvolvimento full stack de aplicações web, criação de APIs RESTful, gerenciamento de bancos de
+                        dados e implementação de testes automatizados.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Junior Developer</h3>
+                    <p class="company">TechCorp Solutions</p>
+                    <p class="period">Jan 2017 - Mai 2018</p>
+                    <p>Manutenção de sistemas legados, desenvolvimento de novas funcionalidades e correção de bugs.
+                        Aprendizado de melhores práticas e padrões de código.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Educação & Certificações</h2>
+        <div class="education-grid">
+            <div class="education-card reveal">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Bacharel em Ciência da Computação</h3>
+                <p class="institution">Universidade de São Paulo</p>
+                <p class="period">2013 - 2017</p>
+            </div>
+
+            <div class="education-card reveal">
+                <i class="fab fa-aws"></i>
+                <h3>AWS Certified Solutions Architect</h3>
+                <p class="institution">Amazon Web Services</p>
+                <p class="period">2022</p>
+            </div>
+
+            <div class="education-card reveal">
+                <i class="fas fa-certificate"></i>
+                <h3>Kubernetes Administrator (CKA)</h3>
+                <p class="institution">Cloud Native Computing Foundation</p>
+                <p class="period">2021</p>
+            </div>
+
+            <div class="education-card reveal">
+                <i class="fab fa-google"></i>
+                <h3>Google Cloud Professional</h3>
+                <p class="institution">Google Cloud Platform</p>
+                <p class="period">2020</p>
+            </div>
+
+            <div class="education-card reveal">
+                <i class="fas fa-code"></i>
+                <h3>Microservices Architecture</h3>
+                <p class="institution">Plataforma Online</p>
+                <p class="period">2021</p>
+            </div>
+
+            <div class="education-card reveal">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Security Best Practices</h3>
+                <p class="institution">Cybersecurity Institute</p>
+                <p class="period">2022</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section
+    <section id="testimonials">
+        <h2 class="section-title">Depoimentos</h2>
+        <div class="testimonials-slider">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-header">
+                    <img src="https://via.placeholder.com/60" alt="Avatar" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Carlos Silva</h4>
+                        <p>Tech Lead na Empresa XYZ</p>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Excelente profissional com deep knowledge em arquitetura de sistemas. Sempre entrega soluções robustas e escaláveis, além de ser um ótimo mentor para a equipe."</p>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="testimonial-header">
+                    <img src="https://via.placeholder.com/60" alt="Avatar" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Ana Santos</h4>
+                        <p>CTO na Empresa ABC</p>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Desenvolvedor backend extremamente competente. Sua habilidade de resolver problemas complexos e propor soluções inovadoras é impressionante."</p>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="testimonial-header">
+                    <img src="https://via.placeholder.com/60" alt="Avatar" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Roberto Lima</h4>
+                        <p>Product Owner</p>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Profissional dedicado que sempre busca entender as necessidades do negócio. Entrega código limpo, bem documentado e com excelente performance."</p>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <h2 class="section-title">Artigos & Blog</h2>
+        <div class="blog-grid">
+            <div class="blog-card reveal">
+                <div class="blog-image">
+                    <i class="fas fa-pen-fancy"></i>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> 15 Out 2024</span>
+                        <span><i class="far fa-clock"></i> 5 min</span>
+                    </div>
+                    <h3>Arquitetura de Microserviços na Prática</h3>
+                    <p>Um guia completo sobre como implementar e escalar microserviços em produção, com exemplos reais e
+                        melhores práticas.</p>
+                    <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card reveal">
+                <div class="blog-image">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> 10 Out 2024</span>
+                        <span><i class="far fa-clock"></i> 8 min</span>
+                    </div>
+                    <h3>Otimização de Queries em PostgreSQL</h3>
+                    <p>Técnicas avançadas para melhorar a performance de consultas SQL e reduzir o tempo de resposta das
+                        suas aplicações.</p>
+                    <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card reveal">
+                <div class="blog-image">
+                    <i class="fab fa-docker"></i>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> 5 Out 2024</span>
+                        <span><i class="far fa-clock"></i> 6 min</span>
+                    </div>
+                    <h3>Docker e Kubernetes: Do Dev ao Production</h3>
+                    <p>Como containerizar suas aplicações e orquestrar deployments com Kubernetes de forma eficiente e
+                        segura.</p>
+                    <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="contact-container">
+            <form class="contact-form reveal">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" placeholder="Escreva sua mensagem aqui..."
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                </button>
+            </form>
+
+            <div class="contact-info reveal">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-item-info">
+                        <h3>Email</h3>
+                        <p>pv.annunciatollata@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-item-info">
+                        <h3>Telefone</h3>
+                        <p>+55 (11) 92015-0594</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-item-info">
+                        <h3>Localização</h3>
+                        <p>São Paulo, Brasil</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:pv.annunciatollata@gmail.com" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://dev.to" target="_blank" class="social-link" title="Dev.to">
+                        <i class="fab fa-dev"></i>
+                    </a>
+                    <a href="https://discord.com" target="_blank" class="social-link" title="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Paulo Vitor. Todos os direitos reservados.</p>
+        <p>
+            <a href="#">Política de Privacidade</a> |
+            <a href="#">Termos de Uso</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            Desenvolvido com <i class="fas fa-heart" style="color: var(--neon-pink);"></i> e muito <i
+                class="fas fa-coffee" style="color: var(--neon-blue);"></i>
+        </p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
