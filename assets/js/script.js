@@ -256,6 +256,7 @@ const resumeZoomReset = document.getElementById('resumeZoomReset');
 const resumeFitWidth = document.getElementById('resumeFitWidth');
 const resumeZoomIndicator = document.getElementById('resumeZoomIndicator');
 const resumePageIndicator = document.getElementById('resumePageIndicator');
+const resumeDownload = document.getElementById('resumeDownload');
 
 let resumeScale = 1;
 let resumeFitScale = 1;
@@ -352,6 +353,31 @@ if (resumeZoomReset) {
 if (resumeFitWidth) {
     resumeFitWidth.addEventListener('click', () => {
         applyResumeScale(calculateResumeFitScale());
+    });
+}
+
+if (resumeDownload) {
+    resumeDownload.addEventListener('click', async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await fetch('docs/Curriculo.pdf');
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            const blob = await response.blob();
+            const blobUrl = URL.createObjectURL(blob);
+            const tempLink = document.createElement('a');
+            tempLink.href = blobUrl;
+            tempLink.download = 'Curriculo-Paulo-Vitor-Annunciato-Llata.pdf';
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            tempLink.remove();
+            URL.revokeObjectURL(blobUrl);
+        } catch (error) {
+            console.error('Erro ao baixar o currículo:', error);
+        }
     });
 }
 
