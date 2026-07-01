@@ -151,9 +151,9 @@
                 </div>
 
                 <div class="about-actions">
-                    <a href="docs/Curriculo.pdf" class="btn btn-primary" target="_blank" rel="noreferrer">
+                    <button type="button" class="btn btn-primary" data-resume-open>
                         <i class="fas fa-file-lines"></i> Abrir currículo
-                    </a>
+                    </button>
                     <a href="https://github.com/paulovitor1029" class="btn btn-secondary" target="_blank"
                         rel="noreferrer">
                         <i class="fab fa-github"></i> GitHub
@@ -234,9 +234,7 @@
     <section id="projects">
         <h2 class="section-title">Projetos</h2>
         <p class="section-text reveal">
-            A seção está pronta para receber projetos publicados. Por enquanto, os cards abaixo funcionam como
-            estrutura do portfólio e serão substituídos por entregas reais com links assim que forem organizadas para
-            publicação.
+            A seção de projetos está em desenvolvimento!
         </p>
 
         <div class="project-filters">
@@ -473,6 +471,43 @@
         <p>Desenvolvedor Backend | Guarulhos, SP, Brasil</p>
     </footer>
 
+    <div class="document-modal" id="resumeModal" aria-hidden="true" role="dialog"
+        aria-labelledby="resumeModalTitle">
+        <div class="document-modal-backdrop" data-resume-close></div>
+        <div class="document-modal-panel" role="document">
+            <button type="button" class="document-modal-close" aria-label="Fechar currículo" data-resume-close>
+                <i class="fas fa-xmark"></i>
+            </button>
+            <div class="document-modal-header">
+                <div>
+                    <h3 id="resumeModalTitle">Currículo</h3>
+                    <p>Visualização interna com zoom, ajuste e download.</p>
+                </div>
+                <div class="document-toolbar">
+                    <button type="button" class="toolbar-btn" id="resumeZoomOut" aria-label="Reduzir zoom">
+                        <i class="fas fa-magnifying-glass-minus"></i>
+                    </button>
+                    <button type="button" class="toolbar-btn" id="resumeZoomReset">100%</button>
+                    <button type="button" class="toolbar-btn" id="resumeZoomIn" aria-label="Aumentar zoom">
+                        <i class="fas fa-magnifying-glass-plus"></i>
+                    </button>
+                    <button type="button" class="toolbar-btn" id="resumeFitWidth">Ajustar</button>
+                    <a href="docs/Curriculo.pdf" class="toolbar-btn toolbar-btn-primary" id="resumeDownload" download>
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <div class="document-status">
+                <span id="resumePageIndicator">Página 1 de 1</span>
+                <span id="resumeZoomIndicator">100%</span>
+            </div>
+            <div class="document-viewer" id="resumeViewer">
+                <img src="assets/img/curriculo-preview.webp" alt="Visualização do currículo"
+                    id="resumePreview" draggable="false">
+            </div>
+        </div>
+    </div>
+
     <div class="certificate-modal" id="certificateModal" aria-hidden="true" role="dialog"
         aria-labelledby="certificateModalTitle">
         <div class="certificate-modal-backdrop" data-certificate-close></div>
@@ -491,7 +526,6 @@
             </div>
         </div>
     </div>
-
     <script src="assets/js/script.js"></script>
 </body>
 

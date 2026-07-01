@@ -221,29 +221,163 @@ if (currentYear) {
     currentYear.textContent = String(new Date().getFullYear());
 }
 
+const body = document.body;
+
+const openModal = (modal) => {
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    body.classList.add('modal-open');
+};
+
+const closeModal = (modal) => {
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    if (!document.querySelector('.document-modal.is-open, .certificate-modal.is-open')) {
+        body.classList.remove('modal-open');
+    }
+};
+
+const resumeModal = document.getElementById('resumeModal');
+const resumeOpeners = document.querySelectorAll('[data-resume-open]');
+const resumeClosers = document.querySelectorAll('[data-resume-close]');
+const resumeViewer = document.getElementById('resumeViewer');
+const resumePreview = document.getElementById('resumePreview');
+const resumeZoomOut = document.getElementById('resumeZoomOut');
+const resumeZoomIn = document.getElementById('resumeZoomIn');
+const resumeZoomReset = document.getElementById('resumeZoomReset');
+const resumeFitWidth = document.getElementById('resumeFitWidth');
+const resumeZoomIndicator = document.getElementById('resumeZoomIndicator');
+const resumePageIndicator = document.getElementById('resumePageIndicator');
+
+let resumeScale = 1;
+let resumeFitScale = 1;
+let resumeBaseWidth = 0;
+
+const updateResumeIndicators = () => {
+    if (resumeZoomIndicator) {
+        resumeZoomIndicator.textContent = `${Math.round(resumeScale * 100)}%`;
+    }
+
+    if (resumePageIndicator) {
+        resumePageIndicator.textContent = 'Página 1 de 1';
+    }
+};
+
+const applyResumeScale = (nextScale) => {
+    if (!resumePreview || !resumeBaseWidth) {
+        return;
+    }
+
+    resumeScale = Math.min(Math.max(nextScale, 0.5), 3);
+    resumePreview.style.width = `${Math.round(resumeBaseWidth * resumeScale)}px`;
+    updateResumeIndicators();
+};
+
+const calculateResumeFitScale = () => {
+    if (!resumePreview || !resumeViewer || !resumeBaseWidth) {
+        return 1;
+    }
+
+    const availableWidth = Math.max(resumeViewer.clientWidth - 32, 280);
+    resumeFitScale = Math.min(3, availableWidth / resumeBaseWidth);
+    return resumeFitScale;
+};
+
+const setupResumePreview = () => {
+    if (!resumePreview) {
+        return;
+    }
+
+    if (!resumeBaseWidth) {
+        resumeBaseWidth = resumePreview.naturalWidth || resumePreview.width;
+    }
+
+    calculateResumeFitScale();
+    resumeScale = resumeFitScale;
+    applyResumeScale(resumeScale);
+};
+
+const openResumeModal = () => {
+    openModal(resumeModal);
+    if (resumeViewer) {
+        resumeViewer.scrollTop = 0;
+        resumeViewer.scrollLeft = 0;
+    }
+
+    if (resumePreview?.complete) {
+        setupResumePreview();
+    } else if (resumePreview) {
+        resumePreview.addEventListener('load', setupResumePreview, { once: true });
+    }
+};
+
+resumeOpeners.forEach((button) => {
+    button.addEventListener('click', () => {
+        openResumeModal();
+    });
+});
+
+resumeClosers.forEach((button) => {
+    button.addEventListener('click', () => {
+        closeModal(resumeModal);
+    });
+});
+
+if (resumeZoomOut) {
+    resumeZoomOut.addEventListener('click', () => {
+        applyResumeScale(resumeScale - 0.15);
+    });
+}
+
+if (resumeZoomIn) {
+    resumeZoomIn.addEventListener('click', () => {
+        applyResumeScale(resumeScale + 0.15);
+    });
+}
+
+if (resumeZoomReset) {
+    resumeZoomReset.addEventListener('click', () => {
+        applyResumeScale(1);
+    });
+}
+
+if (resumeFitWidth) {
+    resumeFitWidth.addEventListener('click', () => {
+        applyResumeScale(calculateResumeFitScale());
+    });
+}
+
+window.addEventListener('resize', () => {
+    if (resumeModal?.classList.contains('is-open') && resumePreview) {
+        calculateResumeFitScale();
+    }
+});
+
+if (resumePreview) {
+    resumePreview.addEventListener('dragstart', (event) => {
+        event.preventDefault();
+    });
+}
+
 const certificateModal = document.getElementById('certificateModal');
 const certificatePreview = document.getElementById('certificatePreview');
 const certificateOpeners = document.querySelectorAll('[data-certificate-open]');
 const certificateClosers = document.querySelectorAll('[data-certificate-close]');
 
 const openCertificateModal = () => {
-    if (!certificateModal) {
-        return;
-    }
-
-    certificateModal.classList.add('is-open');
-    certificateModal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('modal-open');
+    openModal(certificateModal);
 };
 
 const closeCertificateModal = () => {
-    if (!certificateModal) {
-        return;
-    }
-
-    certificateModal.classList.remove('is-open');
-    certificateModal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
+    closeModal(certificateModal);
 };
 
 certificateOpeners.forEach((button) => {
@@ -255,7 +389,15 @@ certificateClosers.forEach((button) => {
 });
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && certificateModal?.classList.contains('is-open')) {
+    if (event.key !== 'Escape') {
+        return;
+    }
+
+    if (resumeModal?.classList.contains('is-open')) {
+        closeModal(resumeModal);
+    }
+
+    if (certificateModal?.classList.contains('is-open')) {
         closeCertificateModal();
     }
 });

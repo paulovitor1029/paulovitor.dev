@@ -1378,6 +1378,7 @@
             overflow: hidden;
         }
 
+        .document-modal,
         .certificate-modal {
             position: fixed;
             inset: 0;
@@ -1388,10 +1389,12 @@
             padding: 1.5rem;
         }
 
+        .document-modal.is-open,
         .certificate-modal.is-open {
             display: flex;
         }
 
+        .document-modal-backdrop,
         .certificate-modal-backdrop {
             position: absolute;
             inset: 0;
@@ -1399,32 +1402,121 @@
             backdrop-filter: blur(10px);
         }
 
+        .document-modal-panel,
         .certificate-modal-panel {
             position: relative;
             z-index: 1;
-            width: min(100%, 1100px);
-            max-height: calc(100vh - 3rem);
-            overflow: auto;
             background: var(--bg-card);
             border: 1px solid rgba(0, 243, 255, 0.18);
             border-radius: 24px;
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        .document-modal-panel {
+            width: min(100%, 1180px);
+            max-height: calc(100vh - 3rem);
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .certificate-modal-header {
+        .document-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
             padding-right: 3rem;
-            margin-bottom: 1rem;
         }
 
-        .certificate-modal-header h3 {
-            margin-bottom: 0.5rem;
+        .document-modal-header h3 {
+            margin-bottom: 0.4rem;
         }
 
-        .certificate-modal-header p {
+        .document-modal-header p {
             color: var(--text-secondary);
         }
 
+        .document-toolbar {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .toolbar-btn {
+            min-height: 44px;
+            padding: 0.7rem 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 243, 255, 0.25);
+            background: rgba(0, 243, 255, 0.06);
+            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .toolbar-btn:hover {
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+        }
+
+        .toolbar-btn-primary {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border-color: transparent;
+            color: #ffffff;
+        }
+
+        .toolbar-btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        .document-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .document-viewer {
+            flex: 1;
+            min-height: 420px;
+            overflow: auto;
+            padding: 1.25rem;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 243, 255, 0.12);
+            background:
+                linear-gradient(45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%),
+                #0f1118;
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+        }
+
+        .document-viewer img {
+            display: block;
+            margin: 0 auto;
+            max-width: none;
+            height: auto;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+            background: #ffffff;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .document-modal-close,
         .certificate-modal-close {
             position: absolute;
             top: 1rem;
@@ -1440,9 +1532,30 @@
             transition: all 0.3s ease;
         }
 
+        .document-modal-close:hover,
         .certificate-modal-close:hover {
             background: rgba(0, 243, 255, 0.12);
             color: var(--neon-blue);
+        }
+
+        .certificate-modal-panel {
+            width: min(100%, 1100px);
+            max-height: calc(100vh - 3rem);
+            overflow: auto;
+            padding: 1.5rem;
+        }
+
+        .certificate-modal-header {
+            padding-right: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .certificate-modal-header h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-modal-header p {
+            color: var(--text-secondary);
         }
 
         .certificate-viewer {
@@ -1472,5 +1585,30 @@
 
             .profile-card {
                 padding: 2rem 1.5rem;
+            }
+
+            .document-modal-panel,
+            .certificate-modal-panel {
+                width: 100%;
+                max-height: calc(100vh - 1.5rem);
+                padding: 1rem;
+            }
+
+            .document-modal-header {
+                flex-direction: column;
+                padding-right: 2.8rem;
+            }
+
+            .document-toolbar {
+                justify-content: flex-start;
+            }
+
+            .document-status {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .document-viewer {
+                padding: 0.75rem;
             }
         }
