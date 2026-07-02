@@ -54,6 +54,10 @@ window.addEventListener('scroll', () => {
 
 const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
+const customCursor = document.getElementById('customCursor');
+const scrollProgressBar = document.getElementById('scrollProgressBar');
+const scrollOrb = document.getElementById('scrollOrb');
+const backToTop = document.getElementById('backToTop');
 
 function updateThemeIcon(theme) {
     if (!themeToggle) {
@@ -100,6 +104,107 @@ if (particlesContainer) {
         particle.style.animationDuration = `${Math.random() * 8 + 12}s`;
         particlesContainer.appendChild(particle);
     }
+}
+
+const supportsCustomCursor = window.matchMedia('(pointer: fine)').matches;
+
+if (customCursor && supportsCustomCursor) {
+    let cursorX = window.innerWidth / 2;
+    let cursorY = window.innerHeight / 2;
+    let targetX = cursorX;
+    let targetY = cursorY;
+
+    const interactiveSelector = [
+        'a',
+        'button',
+        '.btn',
+        '.filter-btn',
+        '.project-card',
+        '.skill-category',
+        '.education-card',
+        '.certificate-card',
+        '.contact-item',
+        '.contact-form',
+        '.info-item',
+        '.profile-links a',
+        '.social-link',
+        '.back-to-top',
+        '.theme-toggle',
+        '.mobile-menu'
+    ].join(',');
+
+    const renderCursor = () => {
+        cursorX += (targetX - cursorX) * 0.24;
+        cursorY += (targetY - cursorY) * 0.24;
+        customCursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+        requestAnimationFrame(renderCursor);
+    };
+
+    document.addEventListener('mousemove', (event) => {
+        targetX = event.clientX;
+        targetY = event.clientY;
+        customCursor.classList.add('is-visible');
+
+        const interactiveTarget = event.target.closest(interactiveSelector);
+        customCursor.classList.toggle('is-hover', Boolean(interactiveTarget));
+    });
+
+    document.addEventListener('mousedown', () => {
+        customCursor.classList.add('is-press');
+    });
+
+    document.addEventListener('mouseup', () => {
+        customCursor.classList.remove('is-press');
+    });
+
+    document.addEventListener('mouseleave', () => {
+        customCursor.classList.remove('is-visible');
+    });
+
+    document.addEventListener('mouseenter', () => {
+        customCursor.classList.add('is-visible');
+    });
+
+    renderCursor();
+}
+
+const updateScrollFx = () => {
+    const scrollTop = window.scrollY;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+
+    html.style.setProperty('--scroll-progress', `${progress}%`);
+    html.style.setProperty('--scroll-tilt', `${Math.sin(scrollTop * 0.0035) * 8}px`);
+
+    if (scrollProgressBar) {
+        scrollProgressBar.style.width = `${progress}%`;
+    }
+
+    if (scrollOrb) {
+        const x = 68 + Math.sin(scrollTop * 0.0024) * 12;
+        const y = 16 + Math.cos(scrollTop * 0.0032) * 10;
+        html.style.setProperty('--orb-x', `${x}vw`);
+        html.style.setProperty('--orb-y', `${y}vh`);
+        scrollOrb.style.opacity = `${0.42 + Math.min(progress / 140, 0.42)}`;
+        scrollOrb.style.transform = `translate3d(0, ${Math.sin(scrollTop * 0.004) * 14}px, 0) scale(${1 + Math.min(progress / 280, 0.18)})`;
+    }
+
+    if (backToTop) {
+        backToTop.classList.toggle('is-visible', scrollTop > 420);
+    }
+};
+
+window.addEventListener('scroll', updateScrollFx);
+window.addEventListener('resize', updateScrollFx);
+updateScrollFx();
+
+if (backToTop) {
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
 
 const revealElements = document.querySelectorAll('.reveal');
